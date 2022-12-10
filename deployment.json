@@ -63,15 +63,7 @@
       "EC2",
       "FARGATE"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:689569268232:task-definition/k6:2",
     "family": "k6",
-    "requiresAttributes": [
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-      },
       {
         "targetId": null,
         "targetType": null,
@@ -126,13 +118,9 @@
       "FARGATE"
     ],
     "networkMode": "awsvpc",
-    "runtimePlatform": {
-      "operatingSystemFamily": "LINUX",
-      "cpuArchitecture": null
-    },
+   
     "cpu": "1024",
-    "revision": 2,
-    "status": "ACTIVE",
+   
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
     "volumes": []
