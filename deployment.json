@@ -59,9 +59,7 @@
     "placementConstraints": [],
     "memory": "2048",
     "taskRoleArn": "arn:aws:iam::689569268232:role/ecsTaskExecutionRole",
-    "compatibilities": [
-      "FARGATE"
-    ],
+
     "family": "k6",
     "pidMode": null,
     "requiresCompatibilities": [
