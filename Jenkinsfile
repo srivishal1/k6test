@@ -25,62 +25,15 @@ pipeline {
 
         stage('Pull Code from GitHub') {
             steps{
-                git credentialsId: 'githubcred', url: 'https://github.com/srivishal1/CICD.git/'
+                git credentialsId: 'githubcred', url: 'https://github.com/srivishal1/k6test.git'
             }
             }
-            
-         stage('Compile using Maven') {
-            steps{
-                 
-                sh 'mvn -Dmaven.test.failure.ignore=true compile' 
-            
-            }
-            }
-            
-//<<<<<<< HEAD
-//          stage('Scan using Sonarqube') {
-//                environment {
-//                      scannerHome = tool 'sonarscanner'
-//                  }
-//             steps {
-        
-//              withSonarQubeEnv('Sonarqube') {
-//                sh "${scannerHome}/bin/sonar-scanner"
-//                 }
-//              timeout(time: 2, unit: 'MINUTES') {
-//                     retry(3) {
-//                 script {
-=======
-//             stage('Scan using Sonarqube') {
-//     environment {
-//         scannerHome = tool 'sonarscanner'
-//     }
-//     steps {
-        
-//         withSonarQubeEnv('Sonarqube') {
-//             sh "${scannerHome}/bin/sonar-scanner"
-//         }
-//         timeout(time: 2, unit: 'MINUTES') {
-//                     retry(3) {
-//           script {
-//>>>>>>> 83369abeb1ba5388e7281fd2f3a1ed844429df7a
-//                             def qg = waitForQualityGate()
-//                             if (qg.status != 'OK') {
-//                                 error "Pipeline aborted due to quality gate failure: ${qg.status}"
-//                             }
-//           }
-//                     }
-//         }
-      
-//     }
-// }
-            
             
             stage('Build Docker Image') {
             steps {
                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awscred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     script {
-                        docker.build("${AWS_ECR_URL}:${POM_VERSION}", "--build-arg JAR_FILE=${JAR_NAME} .")
+                        docker.build("${AWS_ECR_URL}:latest")
                     }
                 }
             }
@@ -93,7 +46,7 @@ pipeline {
                         script {
                             def login = ecrLogin()
                             sh('#!/bin/sh -e\n' + "${login}") // hide logging
-                            docker.image("${AWS_ECR_URL}:${POM_VERSION}").push()
+                            docker.image("${AWS_ECR_URL}:latest").push()
                         }
                     }
                 }
