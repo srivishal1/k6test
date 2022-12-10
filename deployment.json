@@ -1,5 +1,4 @@
 {
-    "ipcMode": null,
     "executionRoleArn": "arn:aws:iam::689569268232:role/ecsTaskExecutionRole",
     "containerDefinitions": [
       {
@@ -61,7 +60,7 @@
     "taskRoleArn": "arn:aws:iam::689569268232:role/ecsTaskExecutionRole",
 
     "family": "k6",
-    "pidMode": null,
+
     "requiresCompatibilities": [
       "FARGATE"
     ],
@@ -69,7 +68,7 @@
    
     "cpu": "1024",
    
-    "inferenceAccelerators": null,
-    "proxyConfiguration": null,
+
+ 
     "volumes": []
   }
