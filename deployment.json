@@ -64,6 +64,7 @@
       "FARGATE"
     ],
     "family": "k6",
+    "requiresAttributes": [
       {
         "targetId": null,
         "targetType": null,
