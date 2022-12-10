@@ -15,7 +15,7 @@
         "entryPoint": [],
         "portMappings": [],
         "command": [],
-        "linuxParameters": null,
+
         "cpu": 0,
         "environment": [
           {
