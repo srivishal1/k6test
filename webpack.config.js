@@ -2,7 +2,8 @@ module.exports = {
   mode: 'production',
   entry:{
     FullFlowLoad: './src/simulations/FullFlowLoad.test.js',
-    FullFlowStress: './src/simulations/FullFlowStress.test.js'
+    FullFlowStress: './src/simulations/FullFlowStress.test.js',
+    Sanity: './src/simulations/Sanity.test.js'
   },
   output: {
     path: __dirname + '/dist',
