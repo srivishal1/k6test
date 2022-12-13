@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "",
+    "loadTest":"webpack && k6 run dist/%Script%.test.js",
     "FullFlowLoadTest": "webpack && k6 run dist/FullFlowLoad.test.js",
     "FullFlowStressTest": "webpack && k6 run  dist/FullFlowStress.test.js",
     "docker:FullFlowLoadTest": "docker-compose up -d influxdb grafana && webpack && docker-compose run k6 run /dist/FullFlowLoad.test.js",

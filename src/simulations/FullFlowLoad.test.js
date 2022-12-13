@@ -19,6 +19,7 @@ export const options = {
   ],
   thresholds: {
     http_reqs: ['count < 100'],
+    http_req_duration: ['p(99)<1500']
   },
 };
 
